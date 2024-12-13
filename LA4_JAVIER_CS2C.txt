@@ -1,0 +1,27 @@
+let customerQueue = ["Elaine", "Althea", "Angelo", "Lito", "Engelbert"];
+
+function displayQueue() {
+  console.log("Current Queue:");
+  for (let i = 0; i < customerQueue.length; i++) {
+    console.log(`${i + 1}. ${customerQueue[i]}`);
+  }
+}
+
+function serviceCustomer() {
+  displayQueue();
+
+  let customerNumber = prompt("Enter the number of the customer to be serviced:");
+
+  if (customerNumber >= 1 && customerNumber <= customerQueue.length) {
+    let customerName = customerQueue[customerNumber - 1];
+    console.log(`Servicing Customer ${customerNumber}: ${customerName}`);
+    customerQueue.splice(customerNumber - 1, 1);
+    console.log("Customer served.");
+  } else {
+    alert("Invalid customer number.");
+   }
+   displayQueue();
+}
+
+displayQueue();
+serviceCustomer();
